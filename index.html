@@ -165,9 +165,12 @@
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-          <li><strong>Data Preparation and Accuracy: </strong>We filtered the dataset to include only relevant columns (complainant ethnicity, gender, allegation type, precinct, and disposition) and excluded low or missing values to ensure accurate and unbiased comparisons between ethnic groups.</li>
-          <li><strong>External Benchmarking: </strong>Population proportions were gathered from the 2020 NYC Census to provide a fair baseline for comparison against the allegation data, allowing disparities to be evaluated in context.</li>
-          <li><strong>Visualization Choice: </strong>A side-by-side bar chart was selected to clearly display Allegations (%) vs. Population (%) by race, making over- and underrepresentation immediately visible and emphasizing evidence of racial disparity.</li>
+          <strong>Decision 1 – Data Cleaning and Selection (Score: +2, Earnest)</strong><br>
+            We filtered the dataset to include only relevant columns such as <code>complainant_ethnicity</code>, <code>allegation</code>, and <code>board_disposition</code>, and removed missing or low-frequency entries. This ensures the visualization accurately reflects racial distribution without distortion. This choice is fully earnest since it prioritizes data integrity and transparency.
+          <strong>Decision 2 – Using NYC 2020 Census as a Baseline (Score: +1.5, Earnest)</strong><br>
+            We compared allegation proportions with population proportions from the 2020 NYC Census to contextualize disparities. This helps viewers understand over- and underrepresentation relative to the city’s demographics. While this introduces an external dataset (which might have minor temporal mismatch), it’s still largely earnest because it strengthens interpretability and fairness.          <li><strong>Visualization Choice: </strong>A side-by-side bar chart was selected to clearly display Allegations (%) vs. Population (%) by race, making over- and underrepresentation immediately visible and emphasizing evidence of racial disparity.</li>
+          <strong>Decision 3 – Side-by-Side Bar Chart Comparison (Score: +1.5, Earnest)</strong><br>
+            We used grouped bars to compare Allegations (%) and Population (%) by race. This layout makes it easy to visually identify which groups are disproportionately represented. The clear visual contrast supports the proposition effectively while maintaining honesty — no scale manipulation or exaggeration is used. Alternative options (like stacked bars) were less direct and harder to interpret.
         </ul>
       </section>
 
