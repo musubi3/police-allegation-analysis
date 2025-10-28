@@ -1,115 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Project 2 Report</title>
+
+<head>
+    <script src="https://musubi3.github.io/Wave/script.js"></script>
+    <link rel="stylesheet" href="https://musubi3.github.io/global.css">
     <link rel="stylesheet" href="styles.css">
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Lee: Police Allegation Analysis</title>
+</head>
 
-  <body>
-    <header>
-      <h1>
-        <small>Project 2</small>
-        Persuasive or Deceptive Visualization?
-      </h1>
+<body>
+    <div class="content project-detail">
+        <header class="project-header">
+            <h1>Racial Disparities in Police Misconduct Allegations</h1>
+            <div class="project-meta">
+                <p class="project-author">Justin Lee, Andrew Kim, Victor Chen</p>
+                <div class="project-info">
+                    <span class="tag project-date">Fall 2025</span>
+                    <span class="tag project-category">DSC 106 Project</span>
+                </div>
+            </div>
+        </header>
 
-      <p><strong>Andrew Kim, Justin Lee, Victor Chen</strong> — <em>akk006@ucsd.edu, jal174@ucsd.edu, vic006@ucsd.edu</em></p>
-    </header>
+        <nav class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#proposal">Introduction</a></li>
+                <li><a href="#for">For Proposition</a></li>
+                <li><a href="#against">Against Proposition</a></li>
+                <li><a href="#reflection">Final reflection</a></li>
+            </ul>
+        </nav>
 
-    <main>
-      <h2>Proposition: Black individuals are disproportionately the subjects of police misconduct allegations compared to their representation in the general population.</h2>
+        <section id="proposal" class="project-section">
+            <h2>Introduction</h2>
+            <p>
+                This data science project, conducted at UCSD, analyzes the relationship between race and police
+                allegations. Many media outlets have highlighted the unfair treatment of officers toward people of
+                color. In this project we are trying to show that black individuals are disproportionately the subjects
+                of police misconduct allegations compared to their representation in the general population. We will be
+                generating visualizations for and against our proposition to explore both sides of the argument.
+            </p>
 
-      <section>
-        <h3>FOR the Proposition</h3>
+        </section>
 
-        <figure>
-          <img src="images/for_prop.png" alt="" />
-          <figcaption>Comparison of the racial distribution of police misconduct allegations versus the general population in New York City. Black individuals account for a substantially higher proportion of allegations relative to their share of the overall population, suggesting disproportionate representation among subjects of police misconduct complaints.</figcaption>
-        </figure>
+        <section id="for" class="project-section">
+            <h2>For Proposition</h2>
+            <div class="plot-container">
+                <img src="images/for_prop.png" width="100%" height="450" alt="For Proposition Visualization">
+                <p><strong>Figure 1:</strong> Comparison of the racial distribution of police misconduct allegations versus the general population
+                    in New York City. Black individuals account for a substantially higher proportion of allegations
+                    relative to their share of the overall population, suggesting disproportionate representation among
+                    subjects of police misconduct complaints.</p>
+            </div>
+            <h4>Design Decisions and Rationale:</h4>
+            <ul>
+                <li>
+                    <strong>Decision 1 – Data Cleaning and Selection (Score: +2, Earnest)</strong><br>
+                    We filtered the dataset to include only relevant columns such as
+                    <code>complainant_ethnicity</code>, <code>allegation</code>, and
+                    <code>board_disposition</code>, and removed missing or low-frequency entries.
+                    This ensures the visualization accurately reflects racial distribution without distortion.
+                    This choice is fully earnest since it prioritizes data integrity and transparency.
+                </li>
 
-        <p>Design Decisions and Rationale:</p>
+                <li>
+                    <strong>Decision 2 – Using NYC 2020 Census as a Baseline (Score: +1.5, Earnest)</strong><br>
+                    We compared allegation proportions with population proportions from the 2020 NYC Census
+                    to contextualize disparities. This helps viewers understand over- and underrepresentation
+                    relative to the city’s demographics. While this introduces an external dataset (which might
+                    have minor temporal mismatch), it’s still largely earnest because it strengthens
+                    interpretability and fairness.
+                </li>
 
-        <ul>
-          <li>
-    <strong>Decision 1 – Data Cleaning and Selection (Score: +2, Earnest)</strong><br>
-      We filtered the dataset to include only relevant columns such as 
-      <code>complainant_ethnicity</code>, <code>allegation</code>, and 
-      <code>board_disposition</code>, and removed missing or low-frequency entries. 
-      This ensures the visualization accurately reflects racial distribution without distortion. 
-      This choice is fully earnest since it prioritizes data integrity and transparency.
-  </li>
+                <li>
+                    <strong>Decision 3 – Side-by-Side Bar Chart Comparison (Score: +1.5, Earnest)</strong><br>
+                    We used grouped bars to compare Allegations (%) and Population (%) by race.
+                    This layout makes it easy to visually identify which groups are disproportionately represented.
+                    The clear visual contrast supports the proposition effectively while maintaining honesty —
+                    no scale manipulation or exaggeration is used. Alternative options (like stacked bars) were
+                    less direct and harder to interpret.
+                </li>
+            </ul>
+        </section>
 
-  <li>
-    <strong>Decision 2 – Using NYC 2020 Census as a Baseline (Score: +1.5, Earnest)</strong><br>
-      We compared allegation proportions with population proportions from the 2020 NYC Census 
-      to contextualize disparities. This helps viewers understand over- and underrepresentation 
-      relative to the city’s demographics. While this introduces an external dataset (which might 
-      have minor temporal mismatch), it’s still largely earnest because it strengthens 
-      interpretability and fairness.
-  </li>
+        <section id="Against" class="project-section">
+            <h2>Against Proposition</h2>
+            <div class="plot-container">
+                <img src="images/against_prop.png" width="100%" height="450" alt="Against Proposition Visualization">
+                <p><strong>Figure 2:</strong> Sustained allegation rates are similar across all racial groups, indicating that complaints from
+                    Black individuals are not less likely to be upheld. This challenges the claim that Black
+                    complainants face disproportionate outcomes in police misconduct investigations.</p>
+            </div>
+            <h4>Design Decisions and Rationale:</h4>
+            <ul>
+                <li>
+                    <strong>Decision 1 – Narrow Y-Axis Range (Score: -1.5, Mildly Deceptive)</strong><br>
+                    The y-axis was adjusted to range from just below the minimum sustained rate (around 70%) to just
+                    above the
+                    maximum (around 78%).
+                    This compresses the scale and makes the small differences between groups appear larger than they
+                    really are.
+                    While this helps highlight variation across races, it can misleadingly suggest stronger disparities
+                    in
+                    sustained outcomes than actually exist.
+                </li>
 
-  <li>
-    <strong>Decision 3 – Side-by-Side Bar Chart Comparison (Score: +1.5, Earnest)</strong><br>
-      We used grouped bars to compare Allegations (%) and Population (%) by race. 
-      This layout makes it easy to visually identify which groups are disproportionately represented. 
-      The clear visual contrast supports the proposition effectively while maintaining honesty — 
-      no scale manipulation or exaggeration is used. Alternative options (like stacked bars) were 
-      less direct and harder to interpret.
-  </li>
-        </ul>
-      </section>
+                <li>
+                    <strong>Decision 2 – Sorting Bars by Sustained Rate (Score: -1, Slightly Deceptive)</strong><br>
+                    Sorting the bars from highest to lowest sustained percentage visually emphasizes the contrast
+                    between groups,
+                    drawing attention to the fact that “Other Race” and “White” categories are at the top while “Black”
+                    is at the
+                    bottom.
+                    Although this ordering improves readability, it can subconsciously lead viewers to interpret the
+                    differences
+                    as more meaningful than they are statistically.
+                </li>
 
-      <section>
-        <h3>AGAINST the Proposition</h3>
+                <li>
+                    <strong>Decision 3 – Simplified Color and Labeling (Score: +1.5, Earnest)</strong><br>
+                    A single neutral color (sky blue) was chosen to avoid implying bias toward any group.
+                    Percentage labels were added above bars for clarity and transparency.
+                    This choice is earnest because it prioritizes comprehension and reduces emotional or visual
+                    manipulation.
+                </li>
+            </ul>
+        </section>
 
-        <figure>
-          <img src="images/against_prop.png" alt="" />
-          <figcaption>Sustained allegation rates are similar across all racial groups, indicating that complaints from Black individuals are not less likely to be upheld. This challenges the claim that Black complainants face disproportionate outcomes in police misconduct investigations.</figcaption>
-        </figure>
-
-        <p>Design Decisions and Rationale:</p>
-
-        <ul>
-          <li>
-            <strong>Decision 1 – Narrow Y-Axis Range (Score: -1.5, Mildly Deceptive)</strong><br>
-              The y-axis was adjusted to range from just below the minimum sustained rate (around 70%) to just above the maximum (around 78%). 
-              This compresses the scale and makes the small differences between groups appear larger than they really are. 
-              While this helps highlight variation across races, it can misleadingly suggest stronger disparities in sustained outcomes than actually exist.
-          </li>
-
-          <li>
-            <strong>Decision 2 – Sorting Bars by Sustained Rate (Score: -1, Slightly Deceptive)</strong><br>
-              Sorting the bars from highest to lowest sustained percentage visually emphasizes the contrast between groups, 
-              drawing attention to the fact that “Other Race” and “White” categories are at the top while “Black” is at the bottom. 
-              Although this ordering improves readability, it can subconsciously lead viewers to interpret the differences as more meaningful than they are statistically.
-          </li>
-
-          <li>
-            <strong>Decision 3 – Simplified Color and Labeling (Score: +1.5, Earnest)</strong><br>
-              A single neutral color (sky blue) was chosen to avoid implying bias toward any group. 
-              Percentage labels were added above bars for clarity and transparency. 
-              This choice is earnest because it prioritizes comprehension and reduces emotional or visual manipulation.
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Final Reflection</h2>
-
-        <p>Our project looked at whether Black individuals are more likely to be the subjects of police misconduct allegations compared to their share of the general population. For the “for” proposition, making visualizations that showed racial differences was pretty straightforward. 
-          By comparing the proportion of allegations with population percentages from the 2020 NYC Census, it is clearly seen that Black complainants were overrepresented. We used the same colors and side-by-side bar charts to make the differences easy to notice while keeping the design 
-          simple and clean. What surprised me most was how much simple design choices, such as the order of categories or what stands out, can change how people interpret the data. It showed me how much visual design can influence understanding, even when the data itself doesn’t change.
-        </p>
-        <p>The “against” proposition was more challenging, since it required us to present a perspective that questioned the claim of disparity. In this case, we looked at the percentage of allegations that were actually sustained by the complainant's race. The bar chart showed that all 
-          racial groups had similar sustained rates that ranged between 71% and 77%, which suggested that outcomes were relatively even. While designing this visualization, I realized how easy it is to use scale, grouping, or focus to make differences appear smaller or larger depending on 
-          the narrative. This exercise made me more aware of how visual design can unintentionally lead to misleading interpretations.
-        </p>
-        <p>
-          After completing both sides, I’ve come to see that ethical visualization is about transparency and honesty in how data are presented. Persuasive choices are acceptable when they highlight real patterns and remain consistent, but they become misleading when they distort proportions 
-          or hide context. Adding clear axis labels, consistent colors, and annotations helps viewers interpret results without confusion. Overall, this project showed me that ethical data storytelling requires both analytical accuracy and awareness of how design decisions influence interpretation 
-          especially when dealing with socially sensitive topics like race and policing.
-        </p>
-      </section>
-    </main>
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+        <section id="reflection" class="project-section">
+            <h2>Final Reflection</h2>
+            <p>Our project looked at whether Black individuals are more likely to be the subjects of police misconduct
+                allegations compared to their share of the general population. For the “for” proposition, making
+                visualizations that showed racial differences was pretty straightforward.
+                By comparing the proportion of allegations with population percentages from the 2020 NYC Census, it is
+                clearly seen that Black complainants were overrepresented. We used the same colors and side-by-side bar
+                charts to make the differences easy to notice while keeping the design
+                simple and clean. What surprised me most was how much simple design choices, such as the order of
+                categories or what stands out, can change how people interpret the data. It showed me how much visual
+                design can influence understanding, even when the data itself doesn’t change.
+            </p>
+            <p>The “against” proposition was more challenging, since it required us to present a perspective that
+                questioned the claim of disparity. In this case, we looked at the percentage of allegations that were
+                actually sustained by the complainant's race. The bar chart showed that all
+                racial groups had similar sustained rates that ranged between 71% and 77%, which suggested that outcomes
+                were relatively even. While designing this visualization, I realized how easy it is to use scale,
+                grouping, or focus to make differences appear smaller or larger depending on
+                the narrative. This exercise made me more aware of how visual design can unintentionally lead to
+                misleading interpretations.
+            </p>
+            <p>
+                After completing both sides, I’ve come to see that ethical visualization is about transparency and
+                honesty in how data are presented. Persuasive choices are acceptable when they highlight real patterns
+                and remain consistent, but they become misleading when they distort proportions
+                or hide context. Adding clear axis labels, consistent colors, and annotations helps viewers interpret
+                results without confusion. Overall, this project showed me that ethical data storytelling requires both
+                analytical accuracy and awareness of how design decisions influence interpretation
+                especially when dealing with socially sensitive topics like race and policing.
+            </p>
+        </section>
+    </div>
 </body>
+
 </html>
