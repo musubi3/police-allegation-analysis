@@ -28,5 +28,10 @@
 
 .plot-container img {
   border: 1px solid oklch(85% 3% 200);
-  border-radius: 4px;
+  border-radius: 8px;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
 }
